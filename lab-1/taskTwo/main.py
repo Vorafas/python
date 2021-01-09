@@ -1,16 +1,24 @@
-length = int(input("Введите число чисел в последовательности: "))
+def getNumber(text):
+    res: int
+    while True:
+        try:
+            res = int(input(text))
+            break
+        except ValueError:
+            print("Введено не число.")
+    return res
 
-result = ""
-minElement: int
+radius = 1.5
 
-for i in range(length):
-    num = int(input("Введите " + str(i) + "-й элемент: "))
-    if i == 0:
-        minElement = num
+xCenter = 3
+yCenter = 3
 
-    if minElement > num:
-        minElement = num
-    result += str(num) + " "
+x = getNumber("Веедите значение x: ")
+y = getNumber("Веедите значение y: ")
 
-print("Минимальный элемент: " + str(minElement))
-print(result)
+result = (x - xCenter) ** 2 + (y - yCenter) ** 2 <= radius ** 2
+
+if result:
+    print("YES")
+else:
+    print("NO")
