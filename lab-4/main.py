@@ -9,7 +9,7 @@ response = session.get(url)
 htmlText = response.text
 session.close()
 
-data = re.findall("<td>(\d{1,2})</td>.+?<td>([А-Яа-я]{3,8})</td>.+?<td>([А-Яа-я]{3,8})</td>.+?<td>([^\<]{1,})</td>", htmlText, flags=re.DOTALL)
+data = re.findall("<td valign=\"top\">(\d{1,2})</td>.+?<td valign=\"top\">([А-Яа-я]{3,8})</td>.+?<td valign=\"top\">([А-Яа-я]{3,8})</td>.+?<td valign=\"top\">([^\<]{1,})</td>", htmlText, flags=re.DOTALL)
 
 for num, start, finish, description in data:
     print(f"№ п.п: {num}")
