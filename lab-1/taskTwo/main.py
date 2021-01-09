@@ -8,17 +8,19 @@ def getNumber(text):
             print("Введено не число.")
     return res
 
-radius = 1.5
+length = getNumber("Введите число чисел в последовательности: ")
 
-xCenter = 3
-yCenter = 3
+result = ""
+minElement: int
 
-x = getNumber("Веедите значение x: ")
-y = getNumber("Веедите значение y: ")
+for i in range(length):
+    num = getNumber("Введите " + str(i) + "-й элемент: ")
+    if i == 0:
+        minElement = num
 
-result = (x - xCenter) ** 2 + (y - yCenter) ** 2 <= radius ** 2
+    if minElement > num:
+        minElement = num
+    result += str(num) + " "
 
-if result:
-    print("YES")
-else:
-    print("NO")
+print("Минимальный элемент: " + str(minElement))
+print(result)
